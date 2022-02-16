@@ -1,4 +1,5 @@
 const express = require('express');
+const welcomeController = require('../controllers/welcomeController');
 
 const router = express.Router();
 
@@ -12,8 +13,6 @@ const router = express.Router();
  *      '200':
  *        description: The Welcome Page was displayed successfully
  */
-router.get('/', (req, res) => {
-  res.status(200).send('<h1 style="text-align: center; padding-top: 300px; color: purple;">Welcome to Phantom Web App!!!!!</h1>');
-});
+router.get('/', welcomeController);
 
 module.exports = router;
