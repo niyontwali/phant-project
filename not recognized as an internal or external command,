@@ -1,0 +1,24 @@
+[33mcommit 6051b809655aad6eb29319bede9f6ccb6e3b22f4[m[33m ([m[1;36mHEAD -> [m[1;32mproject-structure-setup[m[33m, [m[1;31morigin/project-structure-setup[m[33m)[m
+Author: John Niyontwali <nijohn0006@gmail.com>
+Date:   Wed Feb 16 22:20:12 2022 +0200
+
+    I made the following changes:
+    1. Added script for linting
+    2. Added development script which uses nodemon
+    3. Added production script that uses node
+    4. Removed the styles on the Welcome package
+    5. Added a controllers folder to handle all controllers for the routes
+
+[33mcommit c787bf267eb74b9cb23a47dae8f9b03a4e318067[m
+Author: John Niyontwali <nijohn0006@gmail.com>
+Date:   Mon Feb 14 23:27:19 2022 +0200
+
+    Worked on the setup of the project structure,
+    welcome endpoint, configured the ESLint for code analysis
+    and setup the API documentation with Swagger
+
+[33mcommit d2d9730d78c712cf022afc41742c22a626e3b384[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/develop[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mdevelop[m[33m)[m
+Author: anguandia mike <mikeanguandia@gmail.com>
+Date:   Tue Feb 8 11:44:16 2022 +0200
+
+    Initial commit

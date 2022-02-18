@@ -1,5 +1,5 @@
-const express = require('express');
-const welcomeController = require('../controllers/welcomeController');
+import express from 'express';
+import welcomeController from '../controllers/welcomeController';
 
 const router = express.Router();
 
@@ -15,4 +15,4 @@ const router = express.Router();
  */
 router.get('/', welcomeController);
 
-module.exports = router;
+export default router;

@@ -1,10 +1,10 @@
-const express = require('express');
-const logger = require('morgan');
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUI = require('swagger-ui-express');
+import express from 'express';
+import logger from 'morgan';
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUI from 'swagger-ui-express';
 
 // Required Routes
-const welcomeRoute = require('./src/routes/welcomeRoute');
+import welcomeRoute from './routes/welcomeRoute';
 
 // Initialize express app
 const app = express();
@@ -43,3 +43,5 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}..... `);
 });
+
+export default app;

@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf dist && babel src --out-dir dist",
+    "start": "node dist/app.js",
+    "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "devServer": "nodemon --exec node app.js",
     "lint": "eslint . --ext .js --ext .jsx"
   },
   "repository": {
@@ -20,6 +21,8 @@
   },
   "homepage": "https://github.com/atlp-rwanda/Phantom-Backend-Pirates#readme",
   "dependencies": {
+    "@babel/node": "^7.16.8",
+    "@babel/runtime": "^7.17.2",
     "bcrypt": "^5.0.1",
     "debug": "^4.3.3",
     "dotenv": "^16.0.0",
@@ -27,11 +30,14 @@
     "http-errors": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "swagger": "^0.0.1",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.3",
+    "@babel/core": "^7.17.4",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
     "eslint": "^8.9.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.25.4",
