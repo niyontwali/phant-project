@@ -1,7 +1,7 @@
-import express from 'express';
-import welcomeController from '../controllers/welcomeController';
+import express from 'express'
+import welcomeController from '../controllers/welcomeController'
 
-const router = express.Router();
+const router = express.Router()
 
 // Welcome endpoint
 /**
@@ -13,6 +13,6 @@ const router = express.Router();
  *      '200':
  *        description: The Welcome Page was displayed successfully
  */
-router.get('/', welcomeController);
+router.get('/', welcomeController)
 
-export default router;
+export default router

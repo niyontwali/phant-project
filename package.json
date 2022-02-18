@@ -8,7 +8,7 @@
     "start": "node dist/app.js",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint . --fix --ext .js"
   },
   "repository": {
     "type": "git",
@@ -38,12 +38,13 @@
     "@babel/core": "^7.17.4",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
-    "eslint": "^8.9.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
     "nodemon": "^2.0.15"
   }
 }
