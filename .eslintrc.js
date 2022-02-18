@@ -10,13 +10,10 @@ module.exports = {
   ],
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: false,
     },
     ecmaVersion: 'latest',
   },
-  plugins: [
-    'react',
-  ],
   rules: {
     'linebreak-style': 0,
     'no-console': 0,
