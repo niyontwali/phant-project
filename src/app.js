@@ -1,11 +1,11 @@
 import express from 'express'
 import logger from 'morgan'
-import { sequelize } from '../server/models'
+import { sequelize } from '../server/models/index'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
-import bodyParser from 'body-parser'
 
 // Required Routes
+
 import welcomeRoute from './routes/welcomeRoute'
 import loginRoute from './routes/loginRoute'
 import signupRoute from './routes/signupRoute'
@@ -26,9 +26,12 @@ app.all('*', function (req, res, next) {
   next()
 })
 
-app.use(bodyParser.json({ limit: '100mb' }))
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }))
-app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
+// app.use(bodyParser.json({ limit: '100mb' }))
+// app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }))
+// app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 
 // Swagger Info Object
 const swaggerOptions = {
