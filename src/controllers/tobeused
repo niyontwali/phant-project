@@ -1,0 +1,58 @@
+import { User } from '../../server/models/'
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
+import authConfig from '../../server/config/auth'
+
+module.exports = {
+// login user
+  login (req, res) {
+    const { email, password } = req.body
+    User.findOne({
+      where: {
+        email: email
+      }
+    }).then(user => {
+      if (!user) {
+        res.status(404).json({ msg: 'No user available in DB' })
+      } else {
+        if (bcrypt.compareSync(password, user.password)) {
+          const token = jwt.sign({ user: user }, authConfig.secret, {
+            expiresIn: authConfig.expires
+          })
+          res.json({
+            user: user,
+            token: token
+          })
+        } else {
+          res.status(401).json({ msg: "Passwords don't match"})
+        }
+      }
+    }).catch(err => { res.status(500).json(err) })
+  },
+  // register user
+  signUp (req, res) {
+  // hashing our password
+    const password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds))
+    // create user
+    User.create({
+      full_name: req.body,
+      email: req.body,
+      phone_number: req.body,
+      password: password
+    }).then(user => {
+    // create token
+      const token = jwt.sign({ user: User }, authConfig.secret, {
+        expiresIn: authConfig.expires
+      })
+      res.json({
+        user: User,
+        token: token
+      })
+    }).catch(err => {
+      res.status(500).json({
+        err
+      })
+      console.log(err)
+    })
+  }
+}

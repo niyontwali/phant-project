@@ -1,37 +1,23 @@
-import { User } from '../../server/models/index'
-import jwt from 'jsonwebtoken'
-import bcrypt from 'bcrypt'
-import authConfig from '../../server/config/auth'
+import model from '../../server/models'
 
-module.exports = {
-// login user
-  login (req, res) {
+const { User } = model
 
-  },
-
-  // register user
-  signUp (req, res) {
-  // hashing our password
-    const password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds))
-    // create user
-    User.create({
-      full_name: req.body.full_name,
-      email: req.body.email,
-      phone_number: req.body.phone_number,
-      password: password
-    }).then(user => {
-    // create token
-      const token = jwt.sign({ user: user }, authConfig.secret, {
-        expiresIn: authConfig.expires
+class Users {
+  static signUp (req, res) {
+    const { full_name, email, phone_number, password } = req.body
+    return User
+      .create({
+        full_name,
+        email,
+        phone_number,
+        password
       })
-      res.json({
-        user: user,
-        token: token
-      })
-    }).catch(err => {
-      res.status(500).json({
-        err
-      })
-    })
+      .then(userData => res.status(201).send({
+        success: true,
+        message: 'User successfully created',
+        userData
+      }))
   }
 }
+
+export default Users
